@@ -7,47 +7,48 @@
     <title>Calculadora</title>
     <style>
         *{
-            margin: 0;
-            padding: 0;
+            margin: 0; /*margem*/
+            padding: 0; /*espaçamento interno*/
+        
         }
-        .fundo{
-            background-image:linear-gradient(45deg,black,rgb(168, 19, 89) );
-            height: 100vh;
+        .fundo{ /* para chamar a div coloca se o nome dela e um ponto*/
+            background-image:linear-gradient(45deg,black,rgb(168, 19, 89) );/*degrade*/
+            height: 100vh; /*altura vh para ocupar toda a tela com a cor*/
             color: azure;
             font-family:Arial, Helvetica, sans-serif ;
-            text-align: center;
+            text-align: center; /*alinhar o texto ao centro */
         }
         .calculadora{
-            position: absolute;
-            background-color: rgba(0, 0, 0,0.8);
-            top:50%;
-            left:50%;
-            transform: translate(-50%,-50%);
-            border-radius: 15px;
-            padding: 15px;
+            position: absolute; /* ocupa apenas o espaço dela*/
+            background-color: rgba(0, 0, 0,0.8); /* oa no final e o 0.8 indicam transparencia */
+            top:50%;/* descer do top 50%*/
+            left:50%; /* direita 50% */
+            transform: translate(-50%,-50%); /* voltar na diagonal centralizando */
+            border-radius: 15px; /* arredonda as bordas */
+            padding: 15px; /* distancia dos elementos e a borda*/
         }
          .botao{
-             width: 50px;
-             height: 50px;
+             width: 50px; /*largura*/
+             height: 50px; /*altura*/
              font-size: 25px;
-             cursor: pointer;
+             cursor: pointer;/* tipo do curso */
              margin: 3px;
              background-color: rgb(31,31,31);
              border: none;
              color: antiquewhite;
              }
          
-        .botao:hover{
+        .botao:hover{/* mudar a cor dos botoes quando passa o cursor */
             background: black;
         }
-        #resultado{
+        #resultado{ /* id chama com # */
             background-color: white;
             width: 207px;
             height: 30px;
             margin: 5px;
             font-size: 25px;
-            color: black;
-            text-align: right;
+            color: black; /* cor da fonte */
+            text-align: right; /* alinhar adireita */
             padding: 5px;
         }
     </style>
@@ -56,19 +57,19 @@
     <div class="fundo">
     <h1>Francielly Vasconcelos</h1>
     <div class="calculadora">
-    <h1>Calculadora</h1>
-    <p id="resultado"></p>
+    <h1>Calculadora</h1> <!--paragrafo--> 
+    <p id="resultado"></p><!--paragrafo que sera colocado o resultado-->
     <table>
-<tr>
-<td><button class="botao" onclick="clean()" >C</button></td>
-<td><button class="botao" onclick="back()"><</button></td>
+<tr><!--linha-->
+<td><button class="botao" onclick="clean()" >C</button></td><!--td para os dados onclick="clena()" para chamar a funcao de apagar-->
+<td><button class="botao" onclick="back()"><</button></td><!--para formatar todos os botoes igualmente é necessario criar a class botao .back para apagar um de cada vez n precisa de parametro-->
 <td><button class="botao" onclick="insert('/')">/</button></td>
 <td><button class="botao" onclick="insert('*')">X</button></td>
 
 
 </tr>
 <tr>
-<td><button class="botao" onclick="insert('7')">7</button></td>
+<td><button class="botao" onclick="insert('7')">7</button></td> <!--onclick="insert('7') para fazer os botoes funcionarem e precisa jogar o parametro dentro do parenteses-->
 <td><button class="botao" onclick="insert('8')">8</button></td>
 <td><button class="botao" onclick="insert('9')">9</button></td>
 <td><button class="botao" onclick="insert('-')">-</button></td>
@@ -84,12 +85,12 @@
 <td><button class="botao" onclick="insert('1')">1</button></td>
 <td><button class="botao" onclick="insert('2')">2</button></td>
 <td><button class="botao" onclick="insert('3')">3</button></td>
-<td rowspan="2"><button class="botao"style="height: 106px;" onclick="calcular()" >=</button></td>
+<td rowspan="2"><button class="botao"style="height: 106px;" onclick="calcular()" >=</button></td><!--rowspan expandi as linhas nesse caso 2 para ocupar os dois espacos da altura style hight = 106px ,onclick="calcular" para fazer os calculos-->
 
 </tr>
 <tr>
 
-<td colspan="2"><button class="botao" style="width: 106px;" onclick="insert('0')" >0</button></td>
+<td colspan="2"><button class="botao" style="width: 106px;" onclick="insert('0')" >0</button></td><!--cospan expandi as colunas nesse caso duas,para ocupar os dois espacos da largura style weigh -->
 <td><button class="botao" onclick="insert('.')">.</button></td>
 </tr>
     </table>
@@ -100,25 +101,24 @@
 function insert(num)
 { 
   var numero= document.getElementById('resultado').innerHTML;
-  document.getElementById('resultado').innerHTML=numero + num;
+  document.getElementById('resultado').innerHTML=numero + num; //para aparecer um numero sem excluir o outro//
 }
-function clean(){ 
+function clean(){ //funcao pra apagar todos
     document.getElementById('resultado').innerHTML= "";
 }
 function back()
 {
     var resultado= document.getElementById('resultado').innerHTML;
-    document.getElementById('resultado').innerHTML = resultado.substring(0, resultado.length -1);
+    document.getElementById('resultado').innerHTML = resultado.substring(0, resultado.length -1);//pega todos os caracteres do paragrafo com o length e apaga um
 
 }
 function calcular()
 {
-    var resultado=document.getElementById('resultado').innerHTML;
-    if(resultado)
+    var resultado=document.getElementById('resultado').innerHTML; //para guardar a informacao
+    if(resultado)// se tiver algo dentro calculo
     { 
-        document.getElementById('resultado').innerHTML=eval(resultado);
-    }
-}
+        document.getElementById('resultado').innerHTML=eval(resultado); //eval computa todas as operaçoes
+    } }
 </script>
 
 
